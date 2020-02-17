@@ -36,7 +36,7 @@ show_menu () {
            fi
 
            apt-get -y install python-setuptools
-           apt-get install pip
+           apt-get install python-pip
            apt-get -y install python-dev
            apt-get -y install libpcre3-dev
            pip install -r requirements.txt
