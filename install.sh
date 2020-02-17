@@ -9,18 +9,18 @@ return $?
 
 show_menu () {
    # We show the host name right in the menu title so we know which Pi we are connected to
-   OPTION=$(whiptail --title "CraftBeerPi 3.0" --menu "Choose your option:" 15 56 7 \
-   "1" "Install CraftBeerPi" \
+   OPTION=$(whiptail --title "CraftBeerOPi 3.0" --menu "Choose your option:" 15 56 7 \
+   "1" "Install CraftBeerOPi" \
    "2" "Clear Database" \
    "3" "Add To Autostart" \
    "4" "Remove From Autostart" \
-   "5" "Start CraftBeerPi" \
-   "6" "Stop CraftBeerPi" \
+   "5" "Start CraftBeerOPi" \
+   "6" "Stop CraftBeerOPi" \
    "7" "Software Update (git pull)" \
    "8" "Reset File Changes (git reset --hard)" \
    "9" "Clear all logs" \
    "10" "Reboot Raspberry Pi" \
-   "11" "Stop CraftBeerPi, Clear logs, Start CraftBeerPi" 3>&1 1>&2 2>&3)
+   "11" "Stop CraftBeerOPi, Clear logs, Start CraftBeerOPi" 3>&1 1>&2 2>&3)
 
    BUTTON=$?
    # Exit if user pressed cancel or escape
@@ -36,7 +36,7 @@ show_menu () {
            fi
 
            apt-get -y install python-setuptools
-           easy_install pip
+           apt-get install pip
            apt-get -y install python-dev
            apt-get -y install libpcre3-dev
            pip install -r requirements.txt
@@ -49,7 +49,7 @@ show_menu () {
 
            fi
 
-           sudo mv ./config/splash.png /usr/share/plymouth/themes/pix/splash.png
+           #sudo mv ./config/splash.png /usr/share/plymouth/themes/pix/splash.png
 
            sed "s@#DIR#@${PWD}@g" config/craftbeerpiboot > /etc/init.d/craftbeerpiboot
            chmod 755 /etc/init.d/craftbeerpiboot;
