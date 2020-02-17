@@ -12,6 +12,8 @@ This will download (clone) the software to your local Orange Pi.
 
 Type <code>cd craftbeerpi3</code> to navigate into the craftbeerpi folder.
 
+Type <code>chmod +x wiringop.sh</code>
+
 Type <code>sudo ./wiringop.sh</code>
 
 Type <code>sudo ./install.sh</code>
